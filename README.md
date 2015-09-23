@@ -7,6 +7,7 @@ Using the module to login to your salesforce account:
 
 # sample code:
 import SalesforceMetadataModule as smm
+
 sfdc = smm.SalesforceMetadataModule(
     yourSalesforceUserName, yourSalesforcePassword, yourSalesforceSecurityToken)
 
