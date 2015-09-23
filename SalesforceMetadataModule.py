@@ -15,12 +15,6 @@ import xmltodict
 
 # setting the xpath prefix for the xml tag
 _xPathXlmns = './/{http://soap.sforce.com/2006/04/metadata}'
-# no of login attempts you want to make
-_LoginLimit = 3
-# no of retries to make the soap retrieve requests
-_retryLimit = 10
-# sleep time in secs between retry requests
-_sleepLag = 2
 # current version of the api is v34.0
 _salesforceURL = 'https://login.salesforce.com/services/Soap/c/34.0'
 # enterprise xml name space
@@ -54,7 +48,6 @@ class SalesforceMetadataModule:
 
     def __init__(self, username, password, s_token):
         # headers = {'content-type': 'application/soap+xml',  'SOAPAction': ''}
-        loginUrl = 'https://login.salesforce.com/services/Soap/c/34.0'
         headers = {'content-type': 'text/xml', 'SOAPAction': 'Create'}
         body = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:enterprise.soap.sforce.com">
          <soapenv:Header>
@@ -68,7 +61,7 @@ class SalesforceMetadataModule:
             </urn:login>
          </soapenv:Body>
       </soapenv:Envelope>"""
-        response = requests.post(loginUrl, data=body, headers=headers)
+        response = requests.post(_salesforceURL, data=body, headers=headers)
         loginResponseXml = fromstring(response.content)
         try:
             self.sessionId = loginResponseXml.find(
