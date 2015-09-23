@@ -33,7 +33,7 @@ for each in listContent:
 ```        
 sample output will look like this:
 
-```createdById => 00528000000OjSzAAK
+createdById => 00528000000OjSzAAK
 createdByName => Sunil Singh
 createdDate => 2015-06-23T08:41:46.000Z
 fileName => objects/Account.object
@@ -43,7 +43,7 @@ lastModifiedById => 00528000000OjSzAAK
 lastModifiedByName => Sunil Singh
 lastModifiedDate => 2015-06-23T08:41:46.000Z
 manageableState => unmanaged
-type => CustomField```
+type => CustomField
 
 #To retrieve any package from the salesforce account use the below method:
 
