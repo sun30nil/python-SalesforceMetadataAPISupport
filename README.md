@@ -15,7 +15,7 @@ print sfdc.getSessionId()
 
 output: You should be able to see a session id generated
 
-Calling the metadata api methods using the object (sfdc) created above:
+#Calling the metadata api methods using the object (sfdc) created above:
 
 using the 'sfdc' object you can call methods like:
 
@@ -24,8 +24,11 @@ sfdc.listMetadata(SalesforceObject, soap_api_version) # this will return a list 
 Example:
 
 listContent = sfdc.listMetadata('CustomField', '34.0')
+
 for each in listContent:
+
     for k, v in each.iteritems():
+    
         print k, "=>", v
         
 sample output will look like this:
@@ -44,7 +47,9 @@ type => CustomField
 #To retrieve any package from the salesforce account use the below method:
 
 sfdc.retrievePackage(members, name, api version, output zip file name)
+
 sfdc.retrievePackage("AllReports/CustomReportTypeJoin",
                      "Report", "34.0", "reportzip.zip")
+                     
 A zipped file will be saved in your working directory.
 
