@@ -6,10 +6,10 @@ Using the Metadata API module:
 Using the module to login to your salesforce account:
 
 # sample code:
-
 import SalesforceMetadataModule as smm
 sfdc = smm.SalesforceMetadataModule(
     yourSalesforceUserName, yourSalesforcePassword, yourSalesforceSecurityToken)
+
 print sfdc.getSessionId()
 
 output: You should be able to see a session id generated
@@ -27,7 +27,7 @@ for each in listContent:
     for k, v in each.iteritems():
         print k, "=>", v
         
-# sample output will look like this:
+sample output will look like this:
 createdById => 00528000000OjSzAAK
 createdByName => Sunil Singh
 createdDate => 2015-06-23T08:41:46.000Z
@@ -40,9 +40,9 @@ lastModifiedDate => 2015-06-23T08:41:46.000Z
 manageableState => unmanaged
 type => CustomField
 
-To retrieve any package from the salesforce account use the below method:
+#To retrieve any package from the salesforce account use the below method:
 
-# sfdc.retrievePackage(members, name, api version, output zip file name)
+sfdc.retrievePackage(members, name, api version, output zip file name)
 sfdc.retrievePackage("AllReports/CustomReportTypeJoin",
                      "Report", "34.0", "reportzip.zip")
 A zipped file will be saved in your working directory.
